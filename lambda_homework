@@ -1,0 +1,51 @@
+#ex.1
+def evaluate_student(score):
+    return {
+        (2.00, 2.99): "Fail",
+        (3.00, 3.49): "Poor",
+        (3.50, 4.49): "Good",
+        (4.50, 5.49): "Very Good",
+        (5.50, 6.00): "Excellent"
+    }.get((score // 1, score), "Invalid input")
+
+
+print(evaluate_student(3.45))
+print(evaluate_student(2.88))
+
+
+#ex.2
+addition = lambda x, y: x + y
+subtraction = lambda x, y: x - y
+multiplication = lambda x, y: x * y
+division = lambda x, y: "You can't divide by ZERO" if y == 0 else x / y
+
+def calculate(expression):
+    nums = expression.split()
+    x = float(nums[0])
+    y = float(nums[1])
+    operator = nums[2]
+
+    if operator == '+':
+        return addition(x, y)
+    elif operator == '-':
+        return subtraction(x, y)
+    elif operator == '*':
+        return multiplication(x, y)
+    elif operator == '/':
+        return division(x, y)
+    else:
+        return "Invalid operator"
+
+
+print(calculate("4 9 +"))
+print(calculate("81 0 /"))
+
+
+#ex.3
+multiply_string = lambda string, num: string * num
+
+text = input().strip()
+num = int(input().strip())
+
+result = multiply_string(text, num)
+print(result)
